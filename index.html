@@ -1,0 +1,64 @@
+<!DOCTYPE html> <!-- Declara o tipo de documento como HTML5, ajuda o navegador a renderizar corretamente -->
+<html lang="pt-BR"> <!-- Início do documento HTML e define o idioma como português do Brasil -->
+<head> <!-- Cabeçalho do documento: metadados, título, estilos, etc. -->
+  <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 para suportar acentuação -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Faz o layout se ajustar à largura da tela em dispositivos móveis -->
+  <title>Site Modelo</title> <!-- Título da aba/janela do navegador -->
+  <link rel="stylesheet" href="style.css"> <!-- Fim do bloco de estilos CSS -->
+</head> <!-- Fim do cabeçalho do documento -->
+<body> <!-- Início do corpo do documento (conteúdo visível) -->
+
+  <!-- HEADER --> <!-- Comentário HTML para identificar a seção de cabeçalho visual -->
+  <header> <!-- Início do elemento de cabeçalho fixo -->
+    <a href="#" class="logo" onclick="location.reload()">LOGO</a> <!-- Link da logo que recarrega a página ao clicar -->
+    <nav> <!-- Container de navegação com links para as seções -->
+      <a href="#servicos" class="header-link">Serviços</a> <!-- Link de navegação do header para a seção Serviços -->
+      <a href="#sobre" class="header-link">Sobre nós</a> <!-- Link de navegação do header para a seção Sobre nós -->
+      <a href="#contato" class="header-link">Contato</a> <!-- Link de navegação do header para a seção Contato -->
+    </nav> <!-- Fim do container de navegação do header -->
+  </header> <!-- Fim do elemento header -->
+
+  <!-- SEÇÕES --> <!-- Comentário indicando o bloco de seções principais -->
+  <div id="servicos" class="section active"> <!-- Seção Serviços; começa ativa por padrão -->
+    <h1>Nossos Serviços</h1> <!-- Título da seção Serviços -->
+    <p>Desenvolvimento de sites modernos, gerenciamento de redes sociais e estratégias de marketing digital.</p> <!-- Parágrafo descritivo da seção Serviços -->
+  </div> <!-- Fim da seção Serviços -->
+
+  <div id="sobre" class="section"> <!-- Seção Sobre nós; inicialmente oculta -->
+    <h1>Sobre Nós</h1> <!-- Título da seção Sobre nós -->
+    <p>Somos uma equipe dedicada a criar soluções digitais para o crescimento do seu negócio.</p> <!-- Parágrafo descritivo da seção Sobre nós -->
+  </div> <!-- Fim da seção Sobre nós -->
+
+  <div id="contato" class="section"> <!-- Seção Contato; inicialmente oculta -->
+    <h1>Contato</h1> <!-- Título da seção Contato -->
+    <p>Deixe seus dados e entraremos em contato com você o quanto antes!</p> <!-- Parágrafo descritivo da seção Contato -->
+  </div> <!-- Fim da seção Contato -->
+
+  <!-- DOTS --> <!-- Comentário indicando a área dos indicadores (bolinhas) de navegação -->
+  <div class="dots"> <!-- Container das 3 bolinhas de status/navegação -->
+    <div class="dot active"></div> <!-- Primeira bolinha; ativa pois corresponde à seção atual -->
+    <div class="dot"></div> <!-- Segunda bolinha; inativa -->
+    <div class="dot"></div> <!-- Terceira bolinha; inativa -->
+  </div> <!-- Fim do container .dots -->
+
+  <!-- WHATSAPP --> <!-- Comentário indicando o botão flutuante do WhatsApp -->
+  <a href="https://wa.me/seunumero" target="_blank" class="whatsapp">💬</a> <!-- Link que abre conversa no WhatsApp em nova aba, com emoji -->
+
+  <!-- FOOTER --> <!-- Comentário indicando o rodapé fixo do site -->
+  <footer> <!-- Início do rodapé -->
+    <div class="footer-left"> <!-- Área esquerda do rodapé (localização) -->
+      <a href="https://www.google.com/maps/place/Florian%C3%B3polis,+SC" target="_blank"> <!-- Link para o Google Maps abrindo em nova aba -->
+        📍 <strong>Localização</strong> <!-- Ícone de localização e texto em negrito -->
+      </a> <!-- Fim do link de localização -->
+    </div> <!-- Fim da área esquerda do rodapé -->
+    <div class="footer-right"> <!-- Área direita do rodapé (links de navegação) -->
+      <a href="#servicos" class="footer-link">Serviços</a> <!-- Link do rodapé para a seção Serviços -->
+      <a href="#sobre" class="footer-link">Sobre nós</a> <!-- Link do rodapé para a seção Sobre nós -->
+      <a href="#contato" class="footer-link">Contato</a> <!-- Link do rodapé para a seção Contato -->
+    </div> <!-- Fim da área direita do rodapé -->
+  </footer> <!-- Fim do rodapé -->
+
+  <!-- SCRIPT --> <!-- Comentário indicando o início do JavaScript da página -->
+  <script src="script.js"></script> <!-- Fim do script JavaScript -->
+</body> <!-- Fim do corpo do documento -->
+</html> <!-- Fim do documento HTML -->

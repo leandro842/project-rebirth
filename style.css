@@ -1,0 +1,182 @@
+/* Início do bloco de estilos CSS embutidos */
+    body, html { /* Seleciona as tags body e html para aplicar estilos globais */
+      margin: 0; /* Remove as margens padrão do navegador */
+      padding: 0; /* Remove os preenchimentos (paddings) padrão */
+      height: 100%; /* Define altura total da janela para ambas as tags */
+      font-family: Arial, sans-serif; /* Define a família de fontes padrão da página */
+      overflow: hidden; /* sem scroll */ /* Impede rolagem vertical/horizontal da página */
+    } /* Fim do seletor body, html */
+
+    header, footer { /* Aplica os mesmos estilos ao header e ao footer */
+      background: #0A3D78; /* Cor de fundo azul escuro para header e footer */
+      color: white; /* Define a cor do texto como branco */
+      display: flex; /* Usa Flexbox para organizar conteúdo interno */
+      justify-content: space-between; /* Espaça itens nas extremidades (esquerda/direita) */
+      align-items: center; /* Alinha os itens verticalmente ao centro */
+      padding: 0 20px; /* Adiciona espaçamento interno horizontal de 20px */
+      height: 50px; /* fixo */ /* Define altura fixa de 50px */
+      position: relative; /* Define contexto de posicionamento relativo */
+      z-index: 10; /* garante que fica clicável */ /* Garante que fique acima das seções para cliques */
+    } /* Fim do seletor header, footer */
+
+    /* LOGO destacada */ /* Comentário explicativo para o bloco da logo no header */
+    header .logo { /* Seleciona o elemento com classe .logo dentro do header */
+      font-weight: 900; /* Deixa a fonte bem grossa (negrito pesado) */
+      font-size: 22px; /* Define tamanho de fonte de 22px */
+      letter-spacing: 1px; /* Aumenta o espaçamento entre letras em 1px */
+      color: white; /* Define a cor do texto como branco */
+      text-decoration: none; /* Remove sublinhado do link */
+      cursor: pointer; /* Mostra cursor de mão ao passar por cima */
+    } /* Fim do seletor header .logo */
+
+    header nav { /* Estilos para o container de navegação dentro do header */
+      display: flex; /* Usa Flexbox para alinhar os links lado a lado */
+      gap: 15px; /* Distância de 15px entre os links */
+    } /* Fim do seletor header nav */
+
+    nav a, /* Seleciona todos os <a> dentro de qualquer <nav> */
+    .footer-right a, /* Seleciona os links do lado direito do footer */
+    .footer-left a { /* Seleciona os links do lado esquerdo do footer */
+      color: white; /* Cor do texto dos links como branca */
+      text-decoration: none; /* Remove sublinhado dos links */
+    } /* Fim do bloco de links gerais */
+
+    nav a.active, /* Estilos quando o link do header está ativo */
+    .footer-right a.active { /* Estilos quando o link do footer está ativo */
+      text-decoration: underline; /* Sublinha o link ativo para destaque */
+      font-weight: bold; /* Deixa o texto em negrito no ativo */
+    } /* Fim do estado ativo de links */
+
+    /* Seções enquadradas */ /* Comentário para indicar estilo das seções principais */
+    .section { /* Seleciona cada seção de conteúdo principal */
+      display: none; /* Esconde por padrão; só a ativa aparece */
+      height: calc(100vh - 100px); /* 50 header + 50 footer */ /* Altura total menos header e footer */
+      align-items: center; /* Alinha conteúdo interno ao centro verticalmente (ao ativar flex) */
+      justify-content: center; /* Centraliza horizontalmente o conteúdo interno */
+      flex-direction: column; /* Organiza conteúdo em coluna (título em cima, texto embaixo) */
+      text-align: center; /* Centraliza o texto */
+      transform: translateY(-40px); /* sobe mais no desktop */ /* Move a seção 40px para cima no desktop */
+      position: relative; /* Define contexto de posicionamento para elementos internos, se preciso */
+      z-index: 1; /* Coloca as seções abaixo do header/footer mas acima do fundo */
+    } /* Fim do seletor .section */
+
+    .section.active { /* Estilos quando a seção está ativa/visível */
+      display: flex; /* Mostra a seção e aplica layout flex */
+      animation: fadeSlideIn 0.5s ease; /* Aplica animação de entrada suave */
+    } /* Fim do seletor .section.active */
+
+    .section h1 { /* Estilos para os títulos dentro das seções */
+      margin-bottom: 10px; /* Espaço abaixo do título para separar do parágrafo */
+      color: #0A3D78; /* Define a cor do título em azul escuro */
+    } /* Fim do seletor .section h1 */
+
+    /* Animação */ /* Comentário para indicar a animação de entrada das seções */
+    @keyframes fadeSlideIn { /* Define a animação chamada fadeSlideIn */
+      from { /* Estado inicial da animação */
+        opacity: 0; /* Começa invisível */
+        transform: translateX(100px) translateY(-40px); /* Vem da direita e um pouco mais acima */
+      } /* Fim do bloco from */
+      to { /* Estado final da animação */
+        opacity: 1; /* Termina totalmente visível */
+        transform: translateX(0) translateY(-40px); /* Chega na posição original X e -40px em Y */
+      } /* Fim do bloco to */
+    } /* Fim da definição @keyframes */
+
+    /* Dots centralizados acima do footer */ /* Comentário: bolinhas de navegação acima do rodapé */
+    .dots { /* Container das bolinhas indicadores de seção */
+      position: absolute; /* Posiciona em relação ao body/html para fixar perto do rodapé */
+      bottom: 65px; /* sempre acima do rodapé */ /* Mantém 65px acima da borda inferior */
+      left: 50%; /* Centraliza horizontalmente com base no meio da tela */
+      transform: translateX(-50%); /* Ajuste fino para centralizar exatamente */
+      display: flex; /* Organiza as bolinhas lado a lado */
+      gap: 10px; /* Espaçamento de 10px entre as bolinhas */
+      z-index: 5; /* Garante que fiquem acima das seções para serem clicáveis */
+    } /* Fim do seletor .dots */
+
+    .dot { /* Estilo de cada bolinha individual */
+      width: 12px; /* Largura de 12px */
+      height: 12px; /* Altura de 12px (forma quadrada inicialmente) */
+      border-radius: 50%; /* Arredonda até virar um círculo perfeito */
+      background: #bbb; /* Cor cinza claro quando inativa */
+      cursor: pointer; /* Mostra que é clicável ao passar o mouse */
+      transition: background 0.3s ease, transform 0.3s ease; /* Anima mudança de cor e de escala suavemente */
+    } /* Fim do seletor .dot */
+
+    .dot.active { /* Estilo para a bolinha correspondente à seção ativa */
+      background: #0A3D78; /* Pinta a bolinha ativa de azul escuro */
+      transform: scale(1.2); /* Aumenta um pouco o tamanho para destacar */
+    } /* Fim do seletor .dot.active */
+
+    .whatsapp { /* Botão flutuante de WhatsApp */
+      position: fixed; /* Fixa o botão na tela, independente do scroll */
+      bottom: 80px; /* Distância de 80px da borda inferior */
+      right: 20px; /* Distância de 20px da borda direita */
+      background: #25D366; /* Cor característica do WhatsApp (verde) */
+      color: white; /* Cor do ícone/texto em branco */
+      font-size: 28px; /* Tamanho do emoji/ícone */
+      border-radius: 50%; /* Formato circular do botão */
+      padding: 15px; /* Espaço interno para aumentar área clicável */
+      text-decoration: none; /* Remove sublinhado do link */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Sombra para destaque visual */
+      z-index: 20; /* Garante que fique acima de outros elementos */
+    } /* Fim do seletor .whatsapp */
+
+    footer { /* Estilos específicos para o rodapé */
+      position: fixed; /* Mantém o rodapé fixo na base da tela */
+      bottom: 0; /* Encosta na borda inferior */
+      left: 0; /* Alinha à esquerda da tela */
+      right: 0; /* Alinha à direita da tela (ocupa largura total) */
+      font-size: 13px; /* Tamanho de fonte padrão do rodapé */
+    } /* Fim do seletor footer */
+
+    .footer-left, .footer-right { /* Estilos compartilhados para as áreas esquerda e direita do rodapé */
+      display: flex; /* Usa Flexbox para alinhar os itens */
+      align-items: center; /* Alinha verticalmente ao centro */
+      gap: 15px; /* Espaçamento horizontal entre itens */
+    } /* Fim do seletor .footer-left, .footer-right */
+
+    @media (max-width: 768px) { /* Início do media query: aplica estilos quando a tela for <= 768px (mobile/tablet) */
+      header .logo { /* Ajuste da logo no mobile */
+        font-size: 20px; /* Reduz um pouco o tamanho da fonte da logo */
+      } /* Fim do ajuste da logo */
+
+      header nav { /* Ajuste do container de navegação no mobile */
+        gap: 10px; /* Diminui o espaço entre os links no header */
+      } /* Fim do ajuste de nav */
+
+      /* Fonte do cabeçalho um pouco menor no mobile */ /* Comentário explicativo do bloco seguinte */
+      header nav a { /* Seleciona os links do header no mobile */
+        font-size: 13px; /* Reduz o tamanho da fonte para caber melhor */
+      } /* Fim do ajuste dos links do header */
+
+      .footer-right { /* Ajuste da área direita do rodapé no mobile */
+        gap: 10px; /* Reduz o espaço entre links do rodapé direito */
+      } /* Fim do ajuste do footer-right */
+
+      /* ↓↓↓ ajuste apenas no rodapé ↓↓↓ */ /* Indica que a regra a seguir é só para o rodapé */
+      .footer-right a { font-size: 12px; } /* Diminui a fonte dos links do rodapé direito no mobile */
+
+      /* Localização moderadamente mais à esquerda no mobile */ /* Comentário para o ajuste do link de localização */
+      .footer-left a { /* Seleciona o link de localização à esquerda no rodapé */
+        margin-left: -12px; /* Move um pouco para a esquerda para alinhamento visual */
+      } /* Fim do ajuste do link de localização */
+
+      .dots { /* Ajuste da posição das bolinhas no mobile */
+        bottom: 75px; /* sobe só um pouquinho no mobile */ /* Afasta um pouco mais do rodapé para não colidir */
+      } /* Fim do ajuste .dots */
+
+      .section { /* Ajuste da posição das seções no mobile */
+        transform: translateY(-100px); /* sobe bastante no mobile */ /* Move mais para cima para melhor enquadramento */
+      } /* Fim do ajuste .section */
+
+      @keyframes fadeSlideIn { /* Redefinição da animação para o contexto mobile */
+        from { /* Estado inicial no mobile */
+          opacity: 0; /* Começa invisível */
+          transform: translateX(100px) translateY(-100px); /* Vem mais de cima no mobile */
+        } /* Fim do from (mobile) */
+        to { /* Estado final no mobile */
+          opacity: 1; /* Termina visível */
+          transform: translateX(0) translateY(-100px); /* Chega na posição alvo no mobile */
+        } /* Fim do to (mobile) */
+      } /* Fim da redefinição @keyframes (mobile) */
+    } /* Fim do bloco @media */
